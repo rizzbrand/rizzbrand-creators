@@ -33,13 +33,13 @@ export const REVIEWS: REVIEW[] = [
     {
         name: "Zainab Bello",
         username: "@zainabbello",
-        review: "I used to struggle with managing my bookings, but now it’s seamless. My site looks premium and the process is stress-free.",
+        review: "I used to struggle with managing my bookings, but now its seamless. My site looks premium and the process is stress-free.",
         img: "https://randomuser.me/api/portraits/men/5.jpg"
     },
     {
         name: "Tolu Adeyemi",
         username: "@toluadeyemi",
-        review: "From the AI bio to the merch store setup, everything was smooth. It honestly feels like I’m running a mini business now.",
+        review: "From the AI bio to the merch store setup, everything was smooth. It honestly feels like Im running a mini business now.",
         img: "https://randomuser.me/api/portraits/women/6.jpg"
     },
     {
@@ -51,7 +51,7 @@ export const REVIEWS: REVIEW[] = [
     {
         name: "Anjali Menon",
         username: "@anjalimenon",
-        review: "I’m impressed with how much value I’m getting at this price point. It's worth every penny!",
+        review: "Im impressed with how much value Im getting at this price point. Its worth every penny!",
         img: "https://randomuser.me/api/portraits/women/8.jpg"
     },
     {
