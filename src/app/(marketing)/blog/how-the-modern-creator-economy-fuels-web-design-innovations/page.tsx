@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Calendar, User, Clock, Share2, BookmarkPlus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 const BlogPage = () => {
     
@@ -59,9 +60,11 @@ const BlogPage = () => {
         </header>
         </article>
 
-        <img
+        <Image
           src="/images/blog1.jpeg"
           alt="Creator economy web design"
+          width={1200}
+          height={600}
           className="rounded-2xl mb-8 shadow-lg"
         />
   

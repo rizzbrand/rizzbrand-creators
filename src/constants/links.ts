@@ -72,14 +72,14 @@ export const FOOTER_LINKS = [
             { name: "Cookies", href: "/cookies" },
         ],
     },
-    {
-        title: "Developers",
-        links: [
-            { name: "API Docs", href: "/api-docs" },
-            { name: "SDKs", href: "/sdks" },
-            { name: "Tools", href: "/tools" },
-            { name: "Open Source", href: "/open-source" },
-            { name: "Changelog", href: "/changelog" },
-        ],
-    },
+    // {
+    //     title: "Developers",
+    //     links: [
+    //         { name: "API Docs", href: "/api-docs" },
+    //         { name: "SDKs", href: "/sdks" },
+    //         { name: "Tools", href: "/tools" },
+    //         { name: "Open Source", href: "/open-source" },
+    //         { name: "Changelog", href: "/changelog" },
+    //     ],
+    // },
 ];

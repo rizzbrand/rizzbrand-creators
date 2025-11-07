@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Calendar, User, Clock, Share2, BookmarkPlus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 
 
@@ -56,7 +57,7 @@ export default function VirtualInfluencers() {
         </header>
         </article>
   
-        <img
+        <Image
           src="/images/blog2.jpeg"
           alt="Virtual influencers"
           className="rounded-2xl mb-8 shadow-lg"

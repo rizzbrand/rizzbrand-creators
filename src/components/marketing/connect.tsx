@@ -2,6 +2,7 @@
 import React from 'react';
 import Marquee from '../ui/marquee'; // Ensure this package is installed
 import { FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa'
+import Image from 'next/image';
 
 const MarqueeSection = () => {
   return (
@@ -36,7 +37,7 @@ const MarqueeSection = () => {
 
             {/* Profile Card for Anna Engleshall */}
             <div className="relative w-80">
-              <img src="/images/creator2.jpg" alt="Anna Engleshall" className="w-full h-80 rounded-lg object-cover" />
+              <Image src="/images/creator2.jpg" alt="Anna Engleshall" className="w-full h-80 rounded-lg object-cover" />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center w-full opacity-90">
                 <p className="font-semibold text-2xl">Anna Engleshall</p>
                 <div className="flex justify-center space-x-3 text-sm">
@@ -60,7 +61,7 @@ const MarqueeSection = () => {
 
             {/* Profile Card for Chris Williamson */}
             <div className="relative w-80">
-              <img src="/images/creator3.jpg" alt="Chris Williamson" className="w-full h-80 rounded-lg object-cover" />
+              <Image src="/images/creator3.jpg" alt="Chris Williamson" className="w-full h-80 rounded-lg object-cover" />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center w-full opacity-90">
                 <p className="font-semibold text-2xl">Chris Williamson</p>
                 <div className="flex justify-center space-x-3 text-sm">
@@ -84,7 +85,7 @@ const MarqueeSection = () => {
 
             {/* Profile Card for Iman Gadzhi */}
             <div className="relative w-80">
-              <img src="/images/creator4.jpg" alt="Iman Gadzhi" className="w-full h-80 rounded-lg object-cover" />
+              <Image src="/images/creator4.jpg" alt="Iman Gadzhi" className="w-full h-80 rounded-lg object-cover" />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center w-full opacity-90">
                 <p className="font-semibold text-2xl">Iman Gadzhi</p>
                 <div className="flex justify-center space-x-3 text-sm">
@@ -108,7 +109,7 @@ const MarqueeSection = () => {
 
             {/* Profile Card for Wendys */}
             <div className="relative w-80">
-              <img src="/images/creator5.jpg" alt="Wendys" className="w-full h-80 rounded-lg object-cover" />
+              <Image src="/images/creator5.jpg" alt="Wendys" className="w-full h-80 rounded-lg object-cover" />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center w-full opacity-90">
                 <p className="font-semibold text-2xl">Wendys</p>
                 <div className="flex justify-center space-x-3 text-sm">

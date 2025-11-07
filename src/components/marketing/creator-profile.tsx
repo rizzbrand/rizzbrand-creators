@@ -530,7 +530,7 @@ export function CreatorProfile({ creator }: CreatorProfileProps) {
                       </div>
 
                       <div>
-                        <h4 className="font-medium mb-2">What's included:</h4>
+                        <h4 className="font-medium mb-2">What is included:</h4>
                         <ul className="space-y-1 text-sm">
                           {pkg.deliverables.map((item, i) => (
                             <li key={i} className="flex items-center space-x-2">

@@ -20,7 +20,7 @@ const PricingQuestions = () => {
                             Wanna know more?
                         </h2>
                         <p className="text-base lg:text-lg text-muted-foreground text-left lg:text-center mt-2">
-                            Let's dig deeper...
+                            Let &apos; s dig deeper...
                         </p>
                     </div>
                 </Container>

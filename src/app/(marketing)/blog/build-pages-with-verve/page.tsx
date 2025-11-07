@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 const BlogPage = () => {
     return (
@@ -6,11 +7,14 @@ const BlogPage = () => {
           Harnessing AI Tools for 360° Digital Creation
         </h1>
   
-        <img
-          src="https://source.unsplash.com/1200x600/?ai,technology"
-          alt="AI digital creation"
-          className="rounded-2xl mb-8 shadow-lg"
-        />
+      <Image
+        src="https://source.unsplash.com/1200x600/?ai,technology"
+        alt="AI digital creation"
+        width={1200}
+        height={600}
+        className="rounded-2xl mb-8 shadow-lg object-cover"
+      />
+   
   
         <article className="prose prose-lg prose-neutral max-w-none">
           <p>

@@ -5,6 +5,7 @@ import React from "react";
 import Container from "../global/container";
 import { SectionBadge } from "../ui/section-bade";
 import {Button} from "../ui/button";
+import Image from "next/image";
 
 const brands = [
   {
@@ -64,7 +65,7 @@ const CaseStudies = () => (
           className="group block overflow-hidden rounded-lg relative"
         >
           <div className="w-full h-80 bg-gray-800 relative">
-            <img
+            <Image
               src={brand.imageUrl}
               alt={brand.title}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
