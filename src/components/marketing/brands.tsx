@@ -68,6 +68,8 @@ const CaseStudies = () => (
             <Image
               src={brand.imageUrl}
               alt={brand.title}
+              width={500}
+              height={500}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
             {/* Bottom shadow added to enhance text visibility */}

@@ -101,7 +101,7 @@ const Features = () => {
                                           Community Management
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                            Connect your favorite tools and platforms to streamline your workflow and save time.
+                                            Build a loyal community, not just followers. We manage your online space, engage your audience, and keep your brand conversation alive.
                                         </p>
                                     </div>
                                     <div className="w-full h-28 relative">

@@ -55,13 +55,14 @@ const Hero = () => {
                     <div className="absolute top-1/4 left-1/2 -z-10 gradient w-3/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[10rem]"></div>
 
                     <div className="rounded-lg lg:rounded-[24px] border p-2 border-neutral-700 bg-black">
-                        <Image
-                            src="/images/dashboard.png"
-                            alt="dashboard"
-                            width={1920}
-                            height={1080}
-                            className="rounded-lg lg:rounded-[20px]"
-                        />
+                        <video
+                         src="/video/hero2.mp4"
+                         autoPlay
+                         muted
+                         loop
+                         playsInline
+                         className="rounded-lg lg:rounded-[20px] w-full h-auto"
+  />
                     </div>
                 </div>
             </Container>
