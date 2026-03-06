@@ -49,19 +49,16 @@ export const FOOTER_LINKS = [
         title: "Product",
         links: [
             { name: "Home", href: "/" },
-            { name: "Features", href: "/" },
-            { name: "Pricing", href: "/" },
-            { name: "Contact", href: "/" },
-            { name: "Download", href: "/" },
+            { name: "Apps", href: "/apps" },
+            { name: "Case Studies", href: "/case-studies" },
+            { name: "Work with us", href: "/work-with-us" },
         ],
     },
     {
         title: "Resources",
         links: [
             { name: "Blog", href: "/blog" },
-            { name: "Help Center", href: "/help-center" },
-            { name: "Community", href: "/community" },
-            { name: "Guides", href: "/guides" },
+            { name: "Support", href: "/resources/support" },
         ],
     },
     {
@@ -69,7 +66,6 @@ export const FOOTER_LINKS = [
         links: [
             { name: "Privacy", href: "/privacy" },
             { name: "Terms", href: "/terms" },
-            { name: "Cookies", href: "/cookies" },
         ],
     },
     // {

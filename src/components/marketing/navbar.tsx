@@ -35,7 +35,7 @@ const Navbar = () => {
 
             <header
                 className={cn(
-                    "fixed top-4 inset-x-0 mx-auto max-w-6xl px-2 md:px-12 z-[100] transform th",
+                    "fixed top-4 inset-x-0 mx-auto max-w-4xl px-2 md:px-12 z-[100] transform th",
                     isOpen ? "h-[calc(100%-24px)]" : "h-12"
                 )}
             >

@@ -28,13 +28,19 @@ const Footer = () => {
                         <p className="text-base max-w mt-4">
                          Helping creators succeed in the creator economy.
                         </p>
-                        <Button className="mt-8">
-                            <Link href="/app">
-                                Start for free
+                        <a
+                            href="mailto:hey@rizzbrands.site"
+                            className="text-sm text-muted-foreground hover:text-foreground transition-colors mt-2"
+                        >
+                            hey@rizzbrands.site
+                        </a>
+                        <Button className="mt-8" asChild>
+                            <Link href="/work-with-us">
+                                Work with us
                             </Link>
                         </Button>
                     </div>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-lg mt-10 md:mt-0">
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-lg mt-10 md:mt-0">
                         {FOOTER_LINKS?.map((section, index) => (
                             <div key={index} className="flex flex-col gap-4">
                                 <h4 className="text-sm font-medium">
@@ -57,7 +63,7 @@ const Footer = () => {
             <Container>
                 <Wrapper className="pt-10 flex items-center justify-between relative">
                     <p className="text-sm text-secondary-foreground">
-                        &copy; {new Date().getFullYear()} RCA. All rights reserved.
+                        &copy; {new Date().getFullYear()} Rizzbrand. All rights reserved.
                     </p>
                     <div className="flex items-center gap-4">
                         <Link href="https://www.instagram.com/rizzbrandcreators" className="p-1">

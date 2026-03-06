@@ -1,4 +1,4 @@
-import { Background, Companies, Connect, Container, CTA, Features, Hero, Perks, Pricing, Reviews, Wrapper, } from "@/components";
+import { Background, Companies, Connect, Container, CTA, Features, Hero, Perks, Pricing, Reviews, ServicesSection, Wrapper, } from "@/components";
 import  Start  from "@/components/marketing/start";
 import { Spotlight } from "@/components/ui/spotlight";
 import CaseStudies  from "@/components/marketing/brands";
@@ -18,7 +18,9 @@ const HomePage = () => {
                 <Container className="py-8 lg:py-20">
                 <Connect />
                 </Container>
-                <Features />
+                <Companies />
+                <ServicesSection />
+                {/* <Features /> */}
                 <Perks />
                 <CaseStudies />
                 <Start />

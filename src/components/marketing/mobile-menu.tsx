@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { cn } from "@/functions";
 import { useClickOutside } from "@/hooks";
 import { motion } from "framer-motion";
-import { Bot, Box, CalendarClock, Captions, CircleHelp, CopyCheck, Cpu, FileText, Gem, Layers3, LineChart, MonitorSmartphone, Newspaper, PencilRuler, UserCog, Waypoints } from "lucide-react";
+import { Bot, Box, CalendarClock, Captions, CircleHelp, CopyCheck, Cpu, FileText, Gem, LayoutGrid, Layers3, LineChart, MonitorSmartphone, Newspaper, PencilRuler, UserCog, Waypoints } from "lucide-react";
 import Link from "next/link";
 import React from 'react';
 
@@ -99,6 +99,15 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                         onClick={() => setIsOpen(false)}
                         className="w-full px-4 py-2 text-lg hover:text-muted-foreground font-normal transition transform rounded-md cursor-pointer text-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
                     >
+                        <Link href="/apps" className="flex items-center w-full text-start">
+                            <LayoutGrid className="w-4 h-4 mr-2" />
+                            Apps
+                        </Link>
+                    </li>
+                    <li
+                        onClick={() => setIsOpen(false)}
+                        className="w-full px-4 py-2 text-lg hover:text-muted-foreground font-normal transition transform rounded-md cursor-pointer text-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
+                    >
                         <Link href="/" className="flex items-center w-full text-start">
                             <Gem className="w-4 h-4 mr-2" />
                             Pricing
@@ -149,7 +158,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                                 <li
                                     className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
                                 >
-                                    <Link href="/" className="flex items-center w-full text-start">
+                                    <Link href="/resources/support" className="flex items-center w-full text-start">
                                         <CircleHelp className="w-4 h-4 mr-2" />
                                         Support
                                     </Link>

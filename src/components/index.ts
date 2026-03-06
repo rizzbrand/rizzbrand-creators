@@ -12,6 +12,7 @@ import Hero from "./marketing/hero";
 import Navbar from "./marketing/navbar";
 import Companies from "./marketing/companies";
 import Features from "./marketing/features";
+import ServicesSection from "./marketing/services-section";
 import Connect from "./marketing/connect";
 import Perks from "./marketing/perks";
 import Pricing from "./marketing/pricing";
@@ -29,6 +30,7 @@ export {
     Navbar,
     Companies,
     Features,
+    ServicesSection,
     Connect,
     Perks,
     Pricing,

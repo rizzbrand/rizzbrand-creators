@@ -49,7 +49,7 @@ const Hero = () => {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="hidden md:flex">
-                        <Link href="#">
+                        <Link href="#services">
                             See our services
                         </Link>
                     </Button>

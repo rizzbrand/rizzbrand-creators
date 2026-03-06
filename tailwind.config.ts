@@ -94,6 +94,10 @@ const config = {
           "from": { transform: "translateX(0)" },
           "to": { transform: "translateX(calc(-100% - var(--gap)))" },
         },
+        "marquee-infinite": {
+          "from": { transform: "translateX(0)" },
+          "to": { transform: "translateX(-50%)" },
+        },
         "ripple": {
           "0%, 100%": { transform: "translate(-50%, -50%) scale(1)", },
           "50%": { transform: "translate(-50%, -50%) scale(0.9)", },
@@ -114,6 +118,7 @@ const config = {
         "grid": "grid 15s linear infinite",
         "background-shine": "background-shine 2s linear infinite",
         "marquee": "marquee var(--duration) linear infinite",
+        "marquee-infinite": "marquee-infinite var(--duration) linear infinite",
         "ripple": "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         "spotlight": "spotlight 2s ease .75s 1 forwards",
         "loading": "loading 0.6s linear infinite",
