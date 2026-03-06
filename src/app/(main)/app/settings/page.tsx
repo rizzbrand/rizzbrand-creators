@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Container } from "@/components";
-import { currentUser } from '@clerk/nextjs/server';
+// import { currentUser } from '@clerk/nextjs/server';  // Clerk removed
 import { toast } from 'sonner';
 import { SaveIcon, UserIcon } from 'lucide-react';
 
@@ -137,7 +137,7 @@ const Page = () => {
                                 <div>
                                     <p className="font-medium">Email</p>
                                     <p className="text-sm text-muted-foreground">
-                                        Manage your email in Clerk dashboard
+                                        Manage your email (sign in coming soon)
                                     </p>
                                 </div>
                                 <Button variant="outline" size="sm">

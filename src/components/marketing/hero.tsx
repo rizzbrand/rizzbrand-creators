@@ -1,17 +1,14 @@
 "use client";
 
-import { ArrowRightIcon, LayoutDashboardIcon } from "lucide-react";
+import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import Container from "../global/container";
-import { useUser } from "@clerk/nextjs";
+// import { useUser } from "@clerk/nextjs";  // Clerk removed — sign in / sign up commented out
 
 const Hero = () => {
-    const { isSignedIn } = useUser();
-
+    // const { isSignedIn } = useUser();
     return (
         <div className="flex flex-col items-center text-center w-full max-w-5xl my-24 mx-auto z-40 relative">
             <Container delay={0.0}>
@@ -46,20 +43,11 @@ const Hero = () => {
             </Container>
             <Container delay={0.2}>
                 <div className="flex items-center justify-center md:gap-x-6 mt-8">
-                    {isSignedIn ? (
-                        <Button asChild size="lg">
-                            <Link href="/app">
-                                <LayoutDashboardIcon className="h-4 w-4 mr-2" />
-                                View Dashboard
-                            </Link>
-                        </Button>
-                    ) : (
-                        <Button asChild size="lg">
-                            <Link href="/work-with-us">
-                                Work with our studio
-                            </Link>
-                        </Button>
-                    )}
+                    <Button asChild size="lg">
+                        <Link href="/work-with-us">
+                            Work with our studio
+                        </Link>
+                    </Button>
                     <Button asChild size="lg" variant="outline" className="hidden md:flex">
                         <Link href="#">
                             See our services

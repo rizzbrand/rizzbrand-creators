@@ -1,6 +1,6 @@
 "use server";
 
-import { currentUser } from "@clerk/nextjs/server";
+// import { currentUser } from "@clerk/nextjs/server";  // Clerk removed
 import { db } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
@@ -65,27 +65,10 @@ const socialLinkSchema = z.object({
   isVisible: z.boolean().default(true),
 });
 
-// Get or create user
-async function getOrCreateUser() {
-  const user = await currentUser();
-  if (!user) throw new Error("Unauthorized");
-
-  let dbUser = await db.user.findUnique({
-    where: { clerkId: user.id },
-  });
-
-  if (!dbUser) {
-    dbUser = await db.user.create({
-      data: {
-        clerkId: user.id,
-        email: user.emailAddresses[0]?.emailAddress || "",
-        name: user.fullName || user.firstName || null,
-        avatar: user.imageUrl || null,
-      },
-    });
-  }
-
-  return dbUser;
+// Get or create user — Clerk removed; sign in / sign up commented out.
+// Always throws until auth is re-enabled; return type is for TS only.
+async function getOrCreateUser(): Promise<{ id: string; name?: string | null }> {
+  throw new Error("Unauthorized — sign in / sign up are currently disabled.");
 }
 
 // Get or create portfolio

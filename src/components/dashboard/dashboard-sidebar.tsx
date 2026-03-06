@@ -1,25 +1,21 @@
 "use client";
 
 import { SIDEBAR_LINKS } from "@/constants/links";
-import { LogOutIcon } from "lucide-react";
+// import { LogOutIcon } from "lucide-react";  // Sign out commented out (Clerk removed)
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "../global/container";
-import { Button, buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 
 import { cn } from "@/functions";
-import { useClerk, useUser } from "@clerk/nextjs";
-
+// import { useClerk, useUser } from "@clerk/nextjs";  // Clerk removed
 
 const DashboardSidebar = () => {
-
-    const { signOut } = useClerk();
-    const { user } = useUser();
+    // const { signOut } = useClerk();
+    // const { user } = useUser();
     const pathname = usePathname();
 
-    const handleLogout = async () => {
-        await signOut();
-    };
+    // const handleLogout = async () => { await signOut(); };
 
     return (
         <div
@@ -70,28 +66,19 @@ const DashboardSidebar = () => {
                     })}
                 </ul>
 
-                {/* User Section */}
+                {/* User Section — sign out commented out (Clerk removed) */}
                 <div className="mt-auto pt-4 border-t border-border/50">
                     <div className="flex items-center gap-3 mb-3 px-2">
                         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                            <span className="text-white text-xs font-semibold">
-                                {user?.firstName?.[0] || user?.emailAddresses[0]?.emailAddress?.[0] || 'U'}
-                            </span>
+                            <span className="text-white text-xs font-semibold">U</span>
                         </div>
                         <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium truncate">
-                                {user?.fullName || user?.firstName || 'User'}
-                            </p>
+                            <p className="text-sm font-medium truncate">User</p>
                         </div>
                     </div>
-                    <Button
-                        variant="ghost"
-                        onClick={handleLogout}
-                        className="w-full justify-start"
-                    >
-                        <LogOutIcon className="size-4 mr-2" />
-                        Logout
-                    </Button>
+                    {/* <Button variant="ghost" onClick={handleLogout} className="w-full justify-start">
+                        <LogOutIcon className="size-4 mr-2" /> Logout
+                    </Button> */}
                 </div>
             </div>
         </div>

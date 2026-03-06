@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/functions";
-import { useClerk } from "@clerk/nextjs";
+// import { useClerk } from "@clerk/nextjs";  // Clerk removed
 import { ArrowRightIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from 'react';
@@ -12,9 +12,8 @@ import Menu from "./menu";
 import MobileMenu from "./mobile-menu";
 
 const Navbar = () => {
-
-    const { user } = useClerk();
-
+    // Sign in / sign up commented out (Clerk removed)
+    // const { user } = useClerk();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     useEffect(() => {
@@ -51,6 +50,7 @@ const Navbar = () => {
                             </div>
                         </div>
                         <div className="items-center flex gap-2 lg:gap-4">
+                            {/* Sign in / sign up commented out (Clerk removed)
                             {user ? (
                                 <Button size="sm" variant="white" asChild className="hidden sm:flex">
                                     <Link href="https://rizzbrand.site" target="_blank" rel="" >
@@ -60,9 +60,7 @@ const Navbar = () => {
                             ) : (
                                 <>
                                     <Button size="sm" variant="tertiary" asChild className="hover:translate-y-0 hover:scale-100">
-                                        <Link href="/auth/signin">
-                                            Login
-                                        </Link>
+                                        <Link href="/auth/signin">Login</Link>
                                     </Button>
                                     <Button size="sm" variant="white" asChild className="hidden sm:flex">
                                         <Link href="/auth/signup">
@@ -72,6 +70,7 @@ const Navbar = () => {
                                     </Button>
                                 </>
                             )}
+                            */}
                             <Button
                                 size="icon"
                                 variant="ghost"

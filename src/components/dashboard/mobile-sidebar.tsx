@@ -7,20 +7,17 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { SIDEBAR_LINKS } from "@/constants/links";
-import { useClerk, useUser } from "@clerk/nextjs";
-import { LogOutIcon, MenuIcon } from "lucide-react";
+// import { useClerk, useUser } from "@clerk/nextjs";  // Clerk removed
+import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const MobileSidebar = () => {
-
-    const { signOut } = useClerk();
-    const { user } = useUser();
+    // const { signOut } = useClerk();
+    // const { user } = useUser();
     const pathname = usePathname();
 
-    const handleLogout = async () => {
-        await signOut();
-    };
+    // const handleLogout = async () => { await signOut(); };
 
     return (
         <div className="flex lg:hidden">
@@ -76,29 +73,19 @@ const MobileSidebar = () => {
                             })}
                         </ul>
 
-                        {/* User Section */}
+                        {/* User Section — sign out commented out (Clerk removed) */}
                         <div className="mt-auto pt-4 border-t border-border/50">
                             <div className="flex items-center gap-3 mb-3 px-2">
                                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                                    <span className="text-white text-xs font-semibold">
-                                        {user?.firstName?.[0] || user?.emailAddresses[0]?.emailAddress?.[0] || 'U'}
-                                    </span>
+                                    <span className="text-white text-xs font-semibold">U</span>
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium truncate">
-                                        {user?.fullName || user?.firstName || 'User'}
-                                    </p>
+                                    <p className="text-sm font-medium truncate">User</p>
                                 </div>
                             </div>
-                            <Button
-                                size="sm"
-                                variant="ghost"
-                                className="w-full justify-start gap-2 px-4"
-                                onClick={handleLogout}
-                            >
-                                <LogOutIcon className="size-4 mr-1.5" />
-                                Logout
-                            </Button>
+                            {/* <Button size="sm" variant="ghost" className="w-full justify-start gap-2 px-4" onClick={handleLogout}>
+                                <LogOutIcon className="size-4 mr-1.5" /> Logout
+                            </Button> */}
                         </div>
                     </div>
                 </SheetContent>
