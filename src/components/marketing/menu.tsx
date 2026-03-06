@@ -1,7 +1,7 @@
 "use client"
 
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { CalendarRangeIcon, CircleHelp, HashIcon, Newspaper, UsersIcon } from 'lucide-react';
+import { Bot, CircleHelp, Cpu, MonitorSmartphone, Newspaper, PencilRuler } from "lucide-react";
 import Link from 'next/link';
 import React from 'react';
 import Icons from "../global/icons";
@@ -20,7 +20,7 @@ const Menu = () => {
                 <NavigationMenuItem>
                     <Link href="/" legacyBehavior passHref>
                         <NavigationMenuLink className="h-10 px-4 py-2 text-sm font-normal rounded-md text-muted-foreground hover:text-foreground w-max hover:bg-none">
-                        RCA
+                        Rizzbrand
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
@@ -29,8 +29,8 @@ const Menu = () => {
                         Features
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid rounded-3xl gap-3 p-4 md:w-[400px] lg:w-[500px] xl:w-[550px] lg:grid-cols-[.75fr_1fr]">
-                            <li className="row-span-3">
+                        <ul className="grid rounded-3xl gap-2 p-3 md:w-[400px] lg:w-[500px] xl:w-[550px] lg:grid-cols-[.75fr_1fr]">
+                            <li className="row-span-4">
                                 <NavigationMenuLink asChild>
                                     <Link
                                         href="/"
@@ -38,22 +38,25 @@ const Menu = () => {
                                     >
                                         <Icons.icon className="w-6 h-6" />
                                         <div className="my-2 text-lg font-normal">
-                                            RCA AI
+                                            Rizzbrand Studio
                                         </div>
                                         <p className="text-sm text-muted-foreground">
-                                            Your ultimate social media management tool
+                                            A full-service studio helping creators build brands, products, software &amp; AI.
                                         </p>
                                     </Link>
                                 </NavigationMenuLink>
                             </li>
-                            <Item title="Content Calendar" href="/features/content-calendar" icon={<CalendarRangeIcon className="w-5 h-5" />}>
-                                Plan and visualize your content strategy.
+                            <Item title="Web & App Development" href="/services/web-app-development" icon={<MonitorSmartphone className="w-5 h-5" />}>
+                                Design, build, and ship high-performing web and mobile experiences.
                             </Item>
-                            <Item title="Hashtag Manager" href="/features/hashtag-manager" icon={<HashIcon className="w-5 h-5" />}>
-                                Research and track trending hashtags.
+                            <Item title="AI Automation" href="/services/ai-automation" icon={<Bot className="w-5 h-5" />}>
+                                Automate workflows, content, and operations with intelligent AI systems.
                             </Item>
-                            <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
-                                Monitor and analyze competitor performance.
+                            <Item title="Product Development & Design" href="/services/product-development-design" icon={<PencilRuler className="w-5 h-5" />}>
+                                Validate ideas, craft user-centered products, and design delightful experiences.
+                            </Item>
+                            <Item title="Software & AI" href="/services/software-ai" icon={<Cpu className="w-5 h-5" />}>
+                                Ship custom software and AI products around your audience and business.
                             </Item>
                         </ul>
                     </NavigationMenuContent>
@@ -95,12 +98,12 @@ const Menu = () => {
 const Item = ({ title, href, children, icon, ...props }: Props) => {
     return (
         <li>
-            <NavigationMenuLink asChild>
+                    <NavigationMenuLink asChild>
                 <Link
                     passHref
                     href={href}
                     {...props}
-                    className="grid grid-cols-[.15fr_1fr] select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                    className="grid grid-cols-[.15fr_1fr] select-none space-y-1 rounded-lg px-3 py-2.5 leading-none no-underline outline-none transition-colors hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
                 >
                     <div className="flex items-center mt-1 justify-center p-1 w-8 h-8 rounded-md border border-border/80">
                         {icon}

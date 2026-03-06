@@ -1,12 +1,17 @@
-import { ArrowRightIcon } from "lucide-react";
+"use client";
+
+import { ArrowRightIcon, LayoutDashboardIcon } from "lucide-react";
 import Link from "next/link";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Container from "../global/container";
+import { useUser } from "@clerk/nextjs";
 
 const Hero = () => {
+    const { isSignedIn } = useUser();
+
     return (
         <div className="flex flex-col items-center text-center w-full max-w-5xl my-24 mx-auto z-40 relative">
             <Container delay={0.0}>
@@ -28,24 +33,36 @@ const Hero = () => {
                 </div>
             </Container>
             <BlurText
-                word={"Build or scale products\n that succeeds in the creator economy"}
+                word={"Build brands, products & software\n that win in the creator economy"}
                 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent py-2 md:py-0 lg:!leading-snug font-medium racking-[-0.0125em] mt-6 font-heading"
             />
             <Container delay={0.1}>
                 <p className="text-sm sm:text-base lg:text-lg mt-4 text-accent-foreground/60 max-w-2xl mx-auto">
-                We help creators grow their audience, work with the best brands, and lauch their own busines <span className="hidden sm:inline">A global agency for creators focused on helping creators unlock their true potential</span>
+                    We partner with creators and teams to design products, launch brands, and build software &amp; AI experiences that turn attention into long-term businesses.{" "}
+                    <span className="hidden sm:inline">
+                        A full-service studio for creators who want to ship faster without hiring a full in-house team.
+                    </span>
                 </p>
             </Container>
             <Container delay={0.2}>
                 <div className="flex items-center justify-center md:gap-x-6 mt-8">
-                    <Button asChild size="lg">
-                        <Link href="/app">
-                            Start for free
-                        </Link>
-                    </Button>
+                    {isSignedIn ? (
+                        <Button asChild size="lg">
+                            <Link href="/app">
+                                <LayoutDashboardIcon className="h-4 w-4 mr-2" />
+                                View Dashboard
+                            </Link>
+                        </Button>
+                    ) : (
+                        <Button asChild size="lg">
+                            <Link href="/work-with-us">
+                                Work with our studio
+                            </Link>
+                        </Button>
+                    )}
                     <Button asChild size="lg" variant="outline" className="hidden md:flex">
                         <Link href="#">
-                            How it works
+                            See our services
                         </Link>
                     </Button>
                 </div>

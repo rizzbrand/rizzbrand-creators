@@ -22,7 +22,7 @@ const Footer = () => {
                         <div className="flex items-center gap-2">
                             <Icons.icon className="w-5 h-5" />
                             <span className="text-xl font-medium">
-                                RCA
+                                Rizzbrand
                             </span>
                         </div>
                         <p className="text-base max-w mt-4">

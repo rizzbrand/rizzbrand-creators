@@ -19,13 +19,115 @@ enum Role {
   assistant
 }
 
+enum CampaignStatus {
+  active
+  completed
+  paused
+  draft
+}
+
+enum ActivityType {
+  distribution
+  campaign_scheduled
+  order_shipped
+  premiere_scheduled
+  revenue_update
+  stream_update
+}
+
+enum DistributionPlatform {
+  spotify
+  apple_music
+  youtube
+  instagram
+  tiktok
+  facebook
+  twitter
+  website
+}
+
 model User {
   id           String  @id @default(cuid()) @map("_id")
   clerkId      String  @unique
   email        String  @unique
   name         String?
   avatar       String?
+  bio          String?
+  location     String?
+  website      String?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  account      Account?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
+
+model Account {
+  id              String   @id @default(cuid()) @map("_id")
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Metrics
+  totalRevenue    Float    @default(0)
+  totalStreams    Int      @default(0)
+  merchandiseSales Int    @default(0)
+  
+  // Relations
+  campaigns       Campaign[]
+  activities      Activity[]
+  merchandise     Merchandise[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Campaign {
+  id              String         @id @default(cuid()) @map("_id")
+  accountId       String
+  account         Account        @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  
+  title           String
+  description     String?
+  status          CampaignStatus @default(draft)
+  progress        Int            @default(0) // 0-100
+  endDate         DateTime
+  platforms       DistributionPlatform[]
+  
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  
+  @@index([accountId])
+}
+
+model Activity {
+  id              String       @id @default(cuid()) @map("_id")
+  accountId       String
+  account         Account      @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  
+  type            ActivityType
+  title           String
+  description     String?
+  metadata        String?      // JSON string for additional data
+  
+  createdAt       DateTime     @default(now())
+  
+  @@index([accountId])
+  @@index([createdAt])
+}
+
+model Merchandise {
+  id              String   @id @default(cuid()) @map("_id")
+  accountId       String
+  account         Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  
+  name            String
+  description     String?
+  price           Float
+  quantity        Int      @default(0)
+  imageUrl        String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([accountId])
+}
+

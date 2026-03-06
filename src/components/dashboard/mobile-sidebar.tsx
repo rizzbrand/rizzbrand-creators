@@ -7,15 +7,15 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { SIDEBAR_LINKS } from "@/constants/links";
-import { useClerk } from "@clerk/nextjs";
-import { LogOutIcon, MenuIcon, SearchIcon } from "lucide-react";
+import { useClerk, useUser } from "@clerk/nextjs";
+import { LogOutIcon, MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const MobileSidebar = () => {
 
     const { signOut } = useClerk();
-
+    const { user } = useUser();
     const pathname = usePathname();
 
     const handleLogout = async () => {
@@ -35,19 +35,26 @@ const MobileSidebar = () => {
                     </Button>
                 </SheetTrigger>
                 <SheetContent className="w-screen max-w-full">
-                    <div className="flex flex-col w-full mt-10 py-3 h-full">
-                        <Button
-                            variant="outline"
-                            className="w-full justify-start gap-2 px-2"
-                        >
-                            <SearchIcon className="size-4" />
-                            <span className="text-sm">
-                                Search...
-                            </span>
-                        </Button>
-                        <ul className="w-full space-y-2 py-5">
-                            {SIDEBAR_LINKS.map((link, index) => {
+                    <div className="flex flex-col w-full mt-4 py-3 h-full">
+                        {/* Logo Section */}
+                        <div className="mb-6">
+                            <Link href="/app" className="flex items-center gap-x-3">
+                                <div className="w-10 h-10 rounded bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                                    <span className="text-white font-bold">P&G</span>
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-sm font-semibold leading-tight">
+                                        pine& gingr
+                                    </span>
+                                    <span className="text-xs text-muted-foreground leading-tight">
+                                        Music Marketing Platform
+                                    </span>
+                                </div>
+                            </Link>
+                        </div>
 
+                        <ul className="w-full space-y-1 flex-1">
+                            {SIDEBAR_LINKS.map((link, index) => {
                                 const isActive = pathname === link.href;
 
                                 return (
@@ -56,11 +63,12 @@ const MobileSidebar = () => {
                                             href={link.href}
                                             className={buttonVariants({
                                                 variant: "ghost",
-                                                className: isActive ? "bg-muted text-primary w-full !justify-start" : "text-foreground/70 w-full !justify-start",
-                                                // "w-full !justify-start text-foreground/70"
+                                                className: isActive 
+                                                    ? "bg-muted text-primary w-full !justify-start" 
+                                                    : "text-foreground/70 w-full !justify-start",
                                             })}
                                         >
-                                            <link.icon strokeWidth={2} className="size-[18px] mr-1.5" />
+                                            <link.icon strokeWidth={2} className="size-[18px] mr-3" />
                                             {link.label}
                                         </Link>
                                     </li>
@@ -68,7 +76,20 @@ const MobileSidebar = () => {
                             })}
                         </ul>
 
-                        <div className="flex flex-col w-full mt-auto pb-4">
+                        {/* User Section */}
+                        <div className="mt-auto pt-4 border-t border-border/50">
+                            <div className="flex items-center gap-3 mb-3 px-2">
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                                    <span className="text-white text-xs font-semibold">
+                                        {user?.firstName?.[0] || user?.emailAddresses[0]?.emailAddress?.[0] || 'U'}
+                                    </span>
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-sm font-medium truncate">
+                                        {user?.fullName || user?.firstName || 'User'}
+                                    </p>
+                                </div>
+                            </div>
                             <Button
                                 size="sm"
                                 variant="ghost"

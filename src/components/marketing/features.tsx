@@ -12,12 +12,12 @@ const Features = () => {
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24 w-full">
             <Container>
                 <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
-                    <SectionBadge title="Features" />
+                    <SectionBadge title="Services" />
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-medium !leading-snug mt-6">
-                    Complete infrastructure <br /> to build your business
+                        One studio for products,software, brand &amp; growth
                     </h2>
                     <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                        Transform your social media strategy with Luro AI&apos;s cutting-edge features, designed to optimize your content creation and engagement like never before.
+                        We combine web &amp; app development, AI automation, product development &amp; design, and software/AI builds into one partner designed for creator-led brands.
                     </p>
                 </div>
             </Container>
@@ -40,10 +40,10 @@ const Features = () => {
                                     </div>
                                     <div className="flex flex-col">
                                         <h4 className="text-xl font-heading font-medium heading ">
-                                            Get advanced analytics
+                                            Senior product &amp; engineering, on demand
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                            Track your performance with detailed analytics and optimize to get better results.
+                                            A cross-functional team that can take you from idea to shipped product across brand, product, and engineering.
                                         </p>
                                     </div>
                                 </div>
@@ -60,10 +60,10 @@ const Features = () => {
                                     </div>
                                     <div className="flex flex-col mt-auto">
                                         <h4 className="text-xl font-heading font-medium heading">
-                                            Content ideation
+                                            Strategy to execution
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                            Generate ideas for your content with our AI-powered tools to create engaging posts in seconds.
+                                            We help you decide what to build, then design, develop, and launch it across web, product, and AI.
                                         </p>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@ const Features = () => {
                                     <div className="bento-card w-full relative items-center justify-center">
                                         <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                             <p className="text-base text-muted-foreground text-justify [mask-image:radial-gradient(50%_50%_at_50%_50%,#BAB3FF_0%,rgba(186,179,255,0)_90.69%)]">
-                                                We use AI to help you create content that resonates with your audience. Our tools are designed to optimize your content creation and engagement like never before. Transform your social media strategy with Luro AI&apos;s cutting-edge features. Reach your audience with the right message at the right time. Create content faster and smarter with Luro AI. Transform your social media strategy with Luro AI&apos;s cutting-edge features. Create content faster and smarter with Luro AI. Transform your social media strategy with Luro AI&apos;s cutting-edge features. Create content faster and smarter with Luro AI.
+                                                We build systems, products, and AI tools around your audience so every launch, drop, or campaign has real infrastructure behind it. Turn reach into revenue, and one-off moments into long-term brands.
                                             </p>
                                         </div>
                                         <div className="w-full h-16 relative">

@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { cn } from "@/functions";
 import { useClickOutside } from "@/hooks";
 import { motion } from "framer-motion";
-import { Box, CalendarClock, Captions, CircleHelp, CopyCheck, FileText, Gem, Layers3, LineChart, Newspaper, UserCog, Waypoints } from "lucide-react";
+import { Bot, Box, CalendarClock, Captions, CircleHelp, CopyCheck, Cpu, FileText, Gem, Layers3, LineChart, MonitorSmartphone, Newspaper, PencilRuler, UserCog, Waypoints } from "lucide-react";
 import Link from "next/link";
 import React from 'react';
 
@@ -63,25 +63,33 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                                 <li
                                     className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
                                 >
-                                    <Link href="/" className="flex items-center w-full text-start">
-                                        <Captions className="w-4 h-4 mr-2" />
-                                        Caption Generation
+                                    <Link href="/services/web-app-development" className="flex items-center w-full text-start">
+                                        <MonitorSmartphone className="w-4 h-4 mr-2" />
+                                        Web & App Development
                                     </Link>
                                 </li>
                                 <li
                                     className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
                                 >
-                                    <Link href="/" className="flex items-center w-full text-start">
-                                        <CalendarClock className="w-4 h-4 mr-2" />
-                                        Post Scheduling
+                                    <Link href="/services/ai-automation" className="flex items-center w-full text-start">
+                                        <Bot className="w-4 h-4 mr-2" />
+                                        AI Automation
                                     </Link>
                                 </li>
                                 <li
                                     className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
                                 >
-                                    <Link href="/" className="flex items-center w-full text-start">
-                                        <LineChart className="w-4 h-4 mr-2" />
-                                        Analytics Dashboard
+                                    <Link href="/services/product-development-design" className="flex items-center w-full text-start">
+                                        <PencilRuler className="w-4 h-4 mr-2" />
+                                        Product Development & Design
+                                    </Link>
+                                </li>
+                                <li
+                                    className="w-full px-4 py-2 text-lg font-normal transition transform rounded-md cursor-pointer text-foreground/80 hover:text-muted-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
+                                >
+                                    <Link href="/services/software-ai" className="flex items-center w-full text-start">
+                                        <Cpu className="w-4 h-4 mr-2" />
+                                        Software & AI
                                     </Link>
                                 </li>
                             </AccordionContent>

@@ -9,16 +9,9 @@ import { Button } from "../ui/button";
 
 const DashboardNavbar = () => {
     return (
-        <header id="dashboard-navbar" className="fixed top-0 inset-x-0 w-full h-16 bg-background/40 backdrop-blur-md border-b border-border/50 px-4 z-50">
+        <header id="dashboard-navbar" className="fixed top-0 right-0 left-64 lg:left-64 h-16 bg-background/40 backdrop-blur-md border-b border-border/50 px-4 z-40">
             <Container className="flex items-center justify-between size-full">
-                <div className="flex items-center">
-                    <Link href="/app" className="flex items-center gap-x-2">
-                        <Icons.icon className="w-6" />
-                        <span className="text-lg font-semibold">
-                            Luro
-                        </span>
-                    </Link>
-                </div>
+                <div className="flex-1"></div>
                 <div className="flex items-center gap-x-2">
                     <Button
                         size="sm"
