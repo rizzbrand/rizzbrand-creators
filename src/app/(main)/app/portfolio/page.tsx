@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import React, { useEffect, useState, useTransition } from 'react'
@@ -136,7 +137,7 @@ const Page = () => {
                             <CardHeader>
                                 <CardTitle>Basic Information</CardTitle>
                                 <CardDescription>
-                                    Set up your portfolio's basic details
+                                    Set up your portfolio&apos;s basic details
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4">
@@ -244,7 +245,7 @@ const Page = () => {
                             <CardHeader>
                                 <CardTitle>Publishing</CardTitle>
                                 <CardDescription>
-                                    Control your portfolio's visibility
+                                    Control your portfolio&apos;s visibility
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4">

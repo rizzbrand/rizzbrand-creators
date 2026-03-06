@@ -13,7 +13,13 @@ const MarqueeSection = () => {
           <div className="flex space-x-10">
         
             <div className="relative w-80">
-              <img src="/images/kwame.jpg" alt="Kwame Eugene" className="w-full h-80 rounded-lg object-cover" />
+              <Image
+                src="/images/kwame.jpg"
+                alt="Kwame Eugene"
+                width={500}
+                height={500}
+                className="w-full h-80 rounded-lg object-cover"
+              />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center w-full opacity-90">
                 <p className="font-semibold text-2xl">Kuami Eugene</p>
                 <div className="flex justify-center space-x-3 text-sm">

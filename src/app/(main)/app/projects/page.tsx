@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import React, { useEffect, useState } from 'react'
@@ -30,6 +31,8 @@ const Page = () => {
         description: '',
         coverImage: '',
         tags: [] as string[],
+        images: [] as string[],
+        technologies: [] as string[],
         status: 'draft' as 'draft' | 'published' | 'archived',
         featured: false,
     });
@@ -61,6 +64,8 @@ const Page = () => {
                 description: '',
                 coverImage: '',
                 tags: [],
+                images: [],
+                technologies: [],
                 status: 'draft',
                 featured: false,
             });

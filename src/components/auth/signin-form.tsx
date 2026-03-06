@@ -181,7 +181,7 @@ const SignInForm = () => {
         if (from) {
             setIsEmailOpen(false);
         }
-    }, []);
+    }, [from]);
 
     return (
         <div className="flex flex-col text-center w-full">
