@@ -111,32 +111,22 @@ export async function POST(req: NextRequest) {
     ];
 
     if (isCreator(body)) {
-      internalLines.push(
-        "",
-        "--- Creator ---",
-        `Channel name: ${body.channelName}`,
-        body.platform ? `Platform: ${body.platform}` : null,
-        body.website ? `Website/link: ${body.website}` : null,
-        body.whatToBuild ? `What they want to build: ${body.whatToBuild}` : null,
-        body.audienceSize ? `Audience size: ${body.audienceSize}` : null,
-      );
+      internalLines.push("", "--- Creator ---", `Channel name: ${body.channelName}`);
+      if (body.platform) internalLines.push(`Platform: ${body.platform}`);
+      if (body.website) internalLines.push(`Website/link: ${body.website}`);
+      if (body.whatToBuild) internalLines.push(`What they want to build: ${body.whatToBuild}`);
+      if (body.audienceSize) internalLines.push(`Audience size: ${body.audienceSize}`);
     } else if (isAgencyBrand(body)) {
-      internalLines.push(
-        "",
-        "--- Agency / Brand ---",
-        `Company: ${body.companyName}`,
-        body.website ? `Website: ${body.website}` : null,
-        body.servicesNeeded ? `Services needed: ${body.servicesNeeded}` : null,
-        body.projectScope ? `Project scope: ${body.projectScope}` : null,
-      );
+      internalLines.push("", "--- Agency / Brand ---", `Company: ${body.companyName}`);
+      if (body.website) internalLines.push(`Website: ${body.website}`);
+      if (body.servicesNeeded) internalLines.push(`Services needed: ${body.servicesNeeded}`);
+      if (body.projectScope) internalLines.push(`Project scope: ${body.projectScope}`);
     }
 
-    internalLines.push(
-      "",
-      body.budget ? `Budget: ${body.budget}` : null,
-      body.timeline ? `Timeline: ${body.timeline}` : null,
-      body.details ? `\nDetails:\n${body.details}` : null,
-    );
+    internalLines.push("");
+    if (body.budget) internalLines.push(`Budget: ${body.budget}`);
+    if (body.timeline) internalLines.push(`Timeline: ${body.timeline}`);
+    if (body.details) internalLines.push(`\nDetails:\n${body.details}`);
 
     const internalText = internalLines.filter(Boolean).join("\n");
 
@@ -157,19 +147,15 @@ export async function POST(req: NextRequest) {
       `You're reaching out as: ${applicantTypeLabel}`,
     ];
 
-    if (isCreator(body)) {
-      confirmationLines.push(
-        body.whatToBuild ? `What you want to build: ${body.whatToBuild}` : null,
-      );
-    } else if (isAgencyBrand(body)) {
-      confirmationLines.push(
-        body.servicesNeeded ? `Services you need: ${body.servicesNeeded}` : null,
-      );
+    if (isCreator(body) && body.whatToBuild) {
+      confirmationLines.push(`What you want to build: ${body.whatToBuild}`);
+    } else if (isAgencyBrand(body) && body.servicesNeeded) {
+      confirmationLines.push(`Services you need: ${body.servicesNeeded}`);
     }
 
+    if (body.budget) confirmationLines.push(`Budget: ${body.budget}`);
+    if (body.timeline) confirmationLines.push(`Timeline: ${body.timeline}`);
     confirmationLines.push(
-      body.budget ? `Budget: ${body.budget}` : null,
-      body.timeline ? `Timeline: ${body.timeline}` : null,
       "",
       "We'll typically get back to you within 1–2 business days with next steps and potential fit.",
       "",
