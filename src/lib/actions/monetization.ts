@@ -80,7 +80,7 @@ const productSchema = z.object({
 });
 
 export async function updateMonetizationProfile(
-  data: z.infer<typeof profileSchema>
+  data: z.input<typeof profileSchema>
 ) {
   const currentSlug = await getOrCreateMonetizationSlug();
   const parsed = profileSchema.parse(data);
