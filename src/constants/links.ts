@@ -1,4 +1,4 @@
-import { LayoutDashboardIcon, PercentIcon, Share2Icon, ShoppingBagIcon, UsersIcon, BarChart3Icon, SettingsIcon, LucideIcon } from 'lucide-react';
+import { LayoutGridIcon, Link2Icon, BarChart3Icon, CalendarIcon, DollarSignIcon, MailIcon, UsersIcon, SettingsIcon, LucideIcon } from 'lucide-react';
 
 type Link = {
     href: string;
@@ -9,33 +9,38 @@ type Link = {
 export const SIDEBAR_LINKS: Link[] = [
     {
         href: "/app",
-        label: "Dashboard",
-        icon: LayoutDashboardIcon,
+        label: "Creator Tools",
+        icon: LayoutGridIcon,
     },
     {
-        href: "/app/content",
-        label: "Content Creation",
-        icon: PercentIcon,
-    },
-    {
-        href: "/app/distribution",
-        label: "Distribution",
-        icon: Share2Icon,
-    },
-    {
-        href: "/app/store",
-        label: "Store & Merchandise",
-        icon: ShoppingBagIcon,
-    },
-    {
-        href: "/app/team",
-        label: "Team & Collaboration",
-        icon: UsersIcon,
+        href: "/app/link-in-bio",
+        label: "Link in Bio",
+        icon: Link2Icon,
     },
     {
         href: "/app/analytics",
         label: "Analytics",
         icon: BarChart3Icon,
+    },
+    {
+        href: "/app/scheduling",
+        label: "Scheduling",
+        icon: CalendarIcon,
+    },
+    {
+        href: "/app/monetization",
+        label: "Monetization",
+        icon: DollarSignIcon,
+    },
+    {
+        href: "/app/email",
+        label: "Email",
+        icon: MailIcon,
+    },
+    {
+        href: "/app/community",
+        label: "Community",
+        icon: UsersIcon,
     },
     {
         href: "/app/settings",
@@ -49,7 +54,8 @@ export const FOOTER_LINKS = [
         title: "Product",
         links: [
             { name: "Home", href: "/" },
-            { name: "Apps", href: "/apps" },
+            { name: "Creator Tools", href: "/app" },
+            { name: "Our Apps", href: "/apps" },
             { name: "Case Studies", href: "/case-studies" },
             { name: "Work with us", href: "/work-with-us" },
         ],

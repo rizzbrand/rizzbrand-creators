@@ -1,14 +1,14 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
 import Container from "../global/container";
-// import { useUser } from "@clerk/nextjs";  // Clerk removed — sign in / sign up commented out
 
 const Hero = () => {
-    // const { isSignedIn } = useUser();
+    const { data: session } = authClient.useSession();
     return (
         <div className="flex flex-col items-center text-center w-full max-w-5xl my-24 mx-auto z-40 relative">
             <Container delay={0.0}>
@@ -42,15 +42,15 @@ const Hero = () => {
                 </p>
             </Container>
             <Container delay={0.2}>
-                <div className="flex items-center justify-center md:gap-x-6 mt-8">
-                    <Button asChild size="lg">
+                <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-8 px-2">
+                    <Button asChild size="default" className="text-sm sm:text-base">
                         <Link href="/work-with-us">
                             Work with our studio
                         </Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="hidden md:flex">
-                        <Link href="#services">
-                            See our services
+                    <Button asChild size="default" variant="outline" className="text-sm sm:text-base">
+                        <Link href={session?.user ? "/app" : "/auth/signup"}>
+                            {session?.user ? "View Dashboard" : "Sign up for creator tools"}
                         </Link>
                     </Button>
                 </div>

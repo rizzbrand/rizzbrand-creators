@@ -100,8 +100,8 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                         className="w-full px-4 py-2 text-lg hover:text-muted-foreground font-normal transition transform rounded-md cursor-pointer text-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
                     >
                         <Link href="/apps" className="flex items-center w-full text-start">
-                            <LayoutGrid className="w-4 h-4 mr-2" />
-                            Apps
+                            <Box className="w-4 h-4 mr-2" />
+                            Our Apps
                         </Link>
                     </li>
                     <li
@@ -166,6 +166,18 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
+                    <li
+                        onClick={() => setIsOpen(false)}
+                        className="w-full mt-2"
+                    >
+                        <Link
+                            href="/app"
+                            className="flex items-center w-full px-4 py-3 text-lg font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 text-center justify-center"
+                        >
+                            <LayoutGrid className="w-4 h-4 mr-2" />
+                            Creator Tools
+                        </Link>
+                    </li>
                 </ul>
             </motion.div>
         </div>

@@ -64,7 +64,7 @@ const Menu = () => {
                 <NavigationMenuItem>
                     <Link href="/apps" legacyBehavior passHref>
                         <NavigationMenuLink className="h-10 px-4 py-2 text-sm font-normal rounded-md text-muted-foreground hover:text-foreground w-max hover:bg-none">
-                            Apps
+                            Our Apps
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
@@ -89,6 +89,13 @@ const Menu = () => {
                             </Item>
                         </ul>
                     </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="ml-2 mr-1 lg:mr-0">
+                    <Link href="/app" legacyBehavior passHref>
+                        <NavigationMenuLink className="h-10 px-3 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 w-max">
+                            Creator Tools
+                        </NavigationMenuLink>
+                    </Link>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

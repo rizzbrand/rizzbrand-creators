@@ -1,23 +1,30 @@
 "use client";
 
 import { SIDEBAR_LINKS } from "@/constants/links";
-// import { LogOutIcon } from "lucide-react";  // Sign out commented out (Clerk removed)
+import Icons from "@/components/global/icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "../global/container";
 import { buttonVariants } from "../ui/button";
-
+import { authClient } from "@/lib/auth-client";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/functions";
-// import { useClerk, useUser } from "@clerk/nextjs";  // Clerk removed
 
 const DashboardSidebar = () => {
-    // const { signOut } = useClerk();
-    // const { user } = useUser();
-    const pathname = usePathname();
+  const pathname = usePathname();
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
 
-    // const handleLogout = async () => { await signOut(); };
+  const initials = user?.name
+    ? user.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2)
+    : user?.email?.[0]?.toUpperCase() ?? "U";
 
-    return (
+  return (
         <div
             id="sidebar"
             className="flex-col hidden lg:flex fixed left-0 top-0 bottom-0 z-50 bg-background border-r border-border/50 w-64"
@@ -28,15 +35,13 @@ const DashboardSidebar = () => {
                 {/* Logo Section */}
                 <div className="mb-8 pt-4">
                     <Link href="/app" className="flex items-center gap-x-3">
-                        <div className="w-10 h-10 rounded bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                            <span className="text-white font-bold">P&G</span>
-                        </div>
+                        <Icons.icon className="h-10 w-10" />
                         <div className="flex flex-col">
                             <span className="text-sm font-semibold leading-tight">
-                                pine& gingr
+                                Rizzbrand
                             </span>
                             <span className="text-xs text-muted-foreground leading-tight">
-                                Music Marketing Platform
+                                Creator Tools
                             </span>
                         </div>
                     </Link>
@@ -66,19 +71,20 @@ const DashboardSidebar = () => {
                     })}
                 </ul>
 
-                {/* User Section — sign out commented out (Clerk removed) */}
+                {/* User Section */}
                 <div className="mt-auto pt-4 border-t border-border/50">
-                    <div className="flex items-center gap-3 mb-3 px-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                            <span className="text-white text-xs font-semibold">U</span>
-                        </div>
+                    <div className="flex items-center gap-3 px-2">
+                        <Avatar className="h-9 w-9 shrink-0">
+                            <AvatarImage src={user?.image ?? undefined} alt={user?.name ?? "User"} />
+                            <AvatarFallback className="bg-primary/20 text-primary text-xs font-semibold">
+                                {initials}
+                            </AvatarFallback>
+                        </Avatar>
                         <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium truncate">User</p>
+                            <p className="text-sm font-medium truncate">{user?.name ?? "User"}</p>
+                            <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
                         </div>
                     </div>
-                    {/* <Button variant="ghost" onClick={handleLogout} className="w-full justify-start">
-                        <LogOutIcon className="size-4 mr-2" /> Logout
-                    </Button> */}
                 </div>
             </div>
         </div>

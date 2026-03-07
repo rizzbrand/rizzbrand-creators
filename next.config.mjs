@@ -5,6 +5,18 @@ const nextConfig = {
             {
                 protocol: "https",
                 hostname: "randomuser.me"
+            },
+            {
+                protocol: "https",
+                hostname: "utfs.io"
+            },
+            {
+                protocol: "https",
+                hostname: "uploadthing.com"
+            },
+            {
+                protocol: "https",
+                hostname: "j5cdigs2pn.ufs.sh"
             }
         ]
     }

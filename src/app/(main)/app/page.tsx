@@ -1,204 +1,213 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { DollarSignIcon, TargetIcon, PlayIcon, ShoppingBagIcon, TrendingUpIcon, CheckCircleIcon, ClockIcon, CalendarIcon } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
-import { Container } from "@/components";
-import { Badge } from '@/components/ui/badge';
+import { Container, Wrapper } from "@/components";
+import {
+  CREATOR_TOOL_CATEGORIES,
+  OUR_CREATOR_TOOLS,
+  type CreatorTool,
+} from "@/constants/creator-tools";
+import Link from "next/link";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { useState } from "react";
 
-const Page = () => {
-    // Mock data - replace with actual data from your database
-    const metrics = [
-        {
-            title: "Total Revenue",
-            value: "$12,847",
-            change: "+12.5%",
-            icon: DollarSignIcon,
-            color: "text-green-500",
-        },
-        {
-            title: "Active Campaigns",
-            value: "8",
-            change: "+2 this week",
-            icon: TargetIcon,
-            color: "text-blue-500",
-        },
-        {
-            title: "Total Streams",
-            value: "45.2K",
-            change: "+18.3%",
-            icon: PlayIcon,
-            color: "text-purple-500",
-        },
-        {
-            title: "Merchandise Sales",
-            value: "127",
-            change: "+8 today",
-            icon: ShoppingBagIcon,
-            color: "text-orange-500",
-        },
-    ];
+function ToolIcon({ tool, size = "lg" }: { tool: CreatorTool; size?: "sm" | "lg" }) {
+  return (
+    <div
+      className="flex h-full w-full items-center justify-center font-bold text-white/90"
+      style={{
+        backgroundColor: tool.accentColor,
+        fontSize: size === "sm" ? "0.875rem" : "1.5rem",
+      }}
+    >
+      {tool.name.charAt(0)}
+    </div>
+  );
+}
 
-    const campaigns = [
-        {
-            title: "Summer Tour Promotion",
-            progress: 75,
-            endDate: "2024-08-15",
-            platforms: ["Instagram", "TikTok", "YouTube"],
-        },
-        {
-            title: "New Album Launch",
-            progress: 45,
-            endDate: "2024-09-01",
-            platforms: ["Spotify", "Apple Music", "Facebook"],
-        },
-        {
-            title: "Merchandise Flash Sale",
-            progress: 90,
-            endDate: "2024-07-30",
-            platforms: ["Instagram", "Website"],
-        },
-    ];
+function ToolCard({ tool }: { tool: CreatorTool }) {
+  const isExternal = tool.href.startsWith("http");
+  const className =
+    "group relative block overflow-hidden rounded-[28px] border border-border bg-card text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md";
 
-    const activities = [
-        {
-            type: "distribution",
-            title: "New single 'Midnight Dreams' distributed to Spotify",
-            time: "2 hours ago",
-            icon: CheckCircleIcon,
-            iconColor: "text-green-500",
-        },
-        {
-            type: "campaign_scheduled",
-            title: "Instagram story campaign scheduled for tomorrow",
-            time: "4 hours ago",
-            icon: ClockIcon,
-            iconColor: "text-yellow-500",
-        },
-        {
-            type: "order_shipped",
-            title: "Merchandise order #1247 shipped",
-            time: "6 hours ago",
-            icon: CheckCircleIcon,
-            iconColor: "text-green-500",
-        },
-        {
-            type: "premiere_scheduled",
-            title: "YouTube premiere scheduled for Friday",
-            time: "1 day ago",
-            icon: CalendarIcon,
-            iconColor: "text-blue-500",
-        },
-    ];
-
-    return (
-        <div className="p-6 lg:p-8 w-full">
-            <div className="space-y-6">
-                {/* Header */}
-                <div className="mb-8">
-                    <h1 className="text-4xl font-bold mb-2">Dashboard</h1>
-                    <p className="text-muted-foreground text-lg">
-                        Welcome back! Here&apos;s what&apos;s happening with your music marketing.
-                    </p>
-                </div>
-
-                {/* Metrics Cards */}
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                    {metrics.map((metric, index) => (
-                        <Container key={metric.title} delay={index * 0.1}>
-                            <Card>
-                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                    <CardTitle className="text-sm font-medium">
-                                        {metric.title}
-                                    </CardTitle>
-                                    <metric.icon className={`h-5 w-5 ${metric.color}`} />
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="text-2xl font-bold">{metric.value}</div>
-                                    <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
-                                        <TrendingUpIcon className="h-3 w-3 text-green-500" />
-                                        <span>{metric.change}</span>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </Container>
-                    ))}
-                </div>
-
-                {/* Active Campaigns and Recent Activity */}
-                <div className="grid gap-6 lg:grid-cols-2">
-                    {/* Active Campaigns */}
-                    <Container delay={0.4}>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Active Campaigns</CardTitle>
-                                <CardDescription>
-                                    Your ongoing marketing campaigns and their progress.
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-6">
-                                {campaigns.map((campaign, index) => (
-                                    <div key={index} className="space-y-3">
-                                        <div className="flex items-center justify-between">
-                                            <h3 className="font-semibold">{campaign.title}</h3>
-                                            <span className="text-sm text-muted-foreground">
-                                                {campaign.progress}%
-                                            </span>
-                                        </div>
-                                        <Progress value={campaign.progress} className="h-2" />
-                                        <div className="flex items-center justify-between text-sm">
-                                            <div className="flex flex-wrap gap-1">
-                                                {campaign.platforms.map((platform, pIndex) => (
-                                                    <Badge key={pIndex} variant="secondary" className="text-xs">
-                                                        {platform}
-                                                    </Badge>
-                                                ))}
-                                            </div>
-                                            <span className="text-muted-foreground">
-                                                Ends {campaign.endDate}
-                                            </span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </CardContent>
-                        </Card>
-                    </Container>
-
-                    {/* Recent Activity */}
-                    <Container delay={0.5}>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Recent Activity</CardTitle>
-                                <CardDescription>
-                                    Latest updates from your campaigns.
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="space-y-4">
-                                    {activities.map((activity, index) => (
-                                        <div key={index} className="flex items-start gap-3 pb-4 border-b last:border-0 last:pb-0">
-                                            <div className={`mt-0.5 ${activity.iconColor}`}>
-                                                <activity.icon className="h-5 w-5" />
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <p className="text-sm font-medium">
-                                                    {activity.title}
-                                                </p>
-                                                <p className="text-xs text-muted-foreground mt-1">
-                                                    {activity.time}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </Container>
-                </div>
-            </div>
+  const content = (
+    <>
+      <div
+        className="relative aspect-[4/3] w-full overflow-hidden"
+        style={{
+          background: `linear-gradient(135deg, ${tool.accentColor}30 0%, ${tool.accentColor}10 50%, transparent 100%)`,
+        }}
+      >
+        <div className="absolute inset-0 flex items-center justify-center p-8">
+          <div className="relative h-24 w-24 overflow-hidden rounded-[22px] shadow-xl">
+            <ToolIcon tool={tool} />
+          </div>
         </div>
-    )
-};
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+      </div>
 
-export default Page
+      <div className="flex items-center gap-3 border-t border-border bg-card/95 px-4 py-3">
+        <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-2xl">
+          <ToolIcon tool={tool} size="sm" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="text-xs font-medium truncate">{tool.name}</p>
+          <p className="text-[11px] text-muted-foreground truncate">
+            {tool.tagline}
+          </p>
+        </div>
+        <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+          {isExternal ? (
+            <>
+              OPEN
+              <ExternalLink className="h-3 w-3" />
+            </>
+          ) : (
+            "OPEN"
+          )}
+        </span>
+      </div>
+    </>
+  );
+
+  if (isExternal) {
+    return (
+      <a
+        href={tool.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {content}
+      </a>
+    );
+  }
+  return <Link href={tool.href} className={className}>{content}</Link>;
+}
+
+function ToolListCard({ tool }: { tool: CreatorTool }) {
+  const isExternal = tool.href.startsWith("http");
+  const className =
+    "group flex items-center gap-4 p-4 rounded-2xl border border-border bg-card/50 hover:bg-card transition-all duration-200 text-left";
+
+  const content = (
+    <>
+      <div
+        className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-2xl"
+        style={{ backgroundColor: tool.accentColor }}
+      >
+        <ToolIcon tool={tool} />
+      </div>
+      <div className="min-w-0 flex-1">
+        <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wide">
+          {tool.category}
+        </span>
+        <h3 className="mt-0.5 font-semibold truncate">{tool.name}</h3>
+        <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground">
+          {tool.tagline}
+        </p>
+      </div>
+      <span className="flex flex-shrink-0 items-center gap-1 text-xs font-semibold text-primary">
+        {isExternal ? "OPEN" : "OPEN"}
+        <ArrowUpRight className="h-3 w-3" />
+      </span>
+    </>
+  );
+
+  if (isExternal) {
+    return (
+      <a
+        href={tool.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {content}
+      </a>
+    );
+  }
+  return (
+    <Link href={tool.href} className={className}>
+      {content}
+    </Link>
+  );
+}
+
+export default function CreatorToolsAppPage() {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const allTools = OUR_CREATOR_TOOLS;
+  const filteredTools = selectedCategory
+    ? allTools.filter((t) => t.category === selectedCategory)
+    : allTools;
+
+  return (
+    <Wrapper className="min-h-screen py-8 md:py-12">
+      <Container className="mx-auto max-w-5xl">
+        <div className="mb-8 md:mb-12">
+          <h1 className="font-heading text-2xl font-semibold tracking-tight md:text-4xl">
+            Creator Tools
+          </h1>
+          <p className="mt-2 max-w-xl text-sm text-muted-foreground md:text-base">
+            Tools to grow and run your creator business. Build your link in bio,
+            track analytics, schedule content, and more.
+          </p>
+        </div>
+
+        {/* Our tools — built by Rizzbrand */}
+        <section className="mb-12">
+          <h2 className="mb-4 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+            Our tools
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {OUR_CREATOR_TOOLS.map((tool) => (
+              <ToolCard key={tool.id} tool={tool} />
+            ))}
+          </div>
+        </section>
+
+        {/* Category pills */}
+        <div className="mb-6 flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => setSelectedCategory(null)}
+            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              selectedCategory === null
+                ? "bg-primary text-primary-foreground"
+                : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+            }`}
+          >
+            All
+          </button>
+          {CREATOR_TOOL_CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() =>
+                setSelectedCategory(selectedCategory === cat ? null : cat)
+              }
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                selectedCategory === cat
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* All tools */}
+        <section>
+          <h2 className="mb-4 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+            {selectedCategory ? selectedCategory : "All tools"}
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {filteredTools.map((tool) => (
+              <ToolListCard key={tool.id} tool={tool} />
+            ))}
+          </div>
+        </section>
+      </Container>
+    </Wrapper>
+  );
+}

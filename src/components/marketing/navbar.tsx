@@ -1,19 +1,19 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/functions";
-// import { useClerk } from "@clerk/nextjs";  // Clerk removed
-import { ArrowRightIcon, XIcon } from "lucide-react";
+import { XIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from 'react';
 import Icons from "../global/icons";
 import Wrapper from "../global/wrapper";
 import { Button } from "../ui/button";
+import { UserMenu } from "@/components/dashboard/user-menu";
 import Menu from "./menu";
 import MobileMenu from "./mobile-menu";
 
 const Navbar = () => {
-    // Sign in / sign up commented out (Clerk removed)
-    // const { user } = useClerk();
+    const { data: session } = authClient.useSession();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     useEffect(() => {
@@ -50,27 +50,7 @@ const Navbar = () => {
                             </div>
                         </div>
                         <div className="items-center flex gap-2 lg:gap-4">
-                            {/* Sign in / sign up commented out (Clerk removed)
-                            {user ? (
-                                <Button size="sm" variant="white" asChild className="hidden sm:flex">
-                                    <Link href="https://rizzbrand.site" target="_blank" rel="" >
-                                      Rizzbrand.site
-                                    </Link>
-                                </Button>
-                            ) : (
-                                <>
-                                    <Button size="sm" variant="tertiary" asChild className="hover:translate-y-0 hover:scale-100">
-                                        <Link href="/auth/signin">Login</Link>
-                                    </Button>
-                                    <Button size="sm" variant="white" asChild className="hidden sm:flex">
-                                        <Link href="/auth/signup">
-                                            Start for free
-                                            <ArrowRightIcon className="w-4 h-4 ml-2 hidden lg:block" />
-                                        </Link>
-                                    </Button>
-                                </>
-                            )}
-                            */}
+                            {session?.user && <UserMenu />}
                             <Button
                                 size="icon"
                                 variant="ghost"

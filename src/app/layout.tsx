@@ -3,6 +3,9 @@ import { cn, generateMetadata } from "@/functions";
 import { inter, satoshi } from "@/constants";
 import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "@/components";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from "@/app/api/uploadthing/core";
 
 export const metadata = generateMetadata();
 
@@ -20,6 +23,7 @@ export default function RootLayout({
                     satoshi.variable,
                 )}
             >
+                <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
                 <Toaster
                     richColors
                     theme="dark"
