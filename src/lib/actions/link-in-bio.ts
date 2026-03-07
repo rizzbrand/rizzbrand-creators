@@ -75,7 +75,7 @@ const linkSchema = z.object({
   url: z.string().url("Enter a valid URL"),
 });
 
-export async function updateLinkInBio(data: z.infer<typeof linkInBioSchema>) {
+export async function updateLinkInBio(data: z.input<typeof linkInBioSchema>) {
   const currentSlug = await getOrCreateLinkInBioSlug();
   const parsed = linkInBioSchema.parse(data);
 
