@@ -343,3 +343,145 @@ model MonetizationProduct {
   @@index([profileId])
 }
 
+// --- Agency Program (creator agency program) ---
+
+enum AgencyApplicationStatus {
+  applied
+  in_review
+  accepted
+  rejected
+  completed
+}
+
+enum AgencyTaskStatus {
+  pending
+  submitted
+  approved
+  needs_changes
+}
+
+enum AgencySubmissionType {
+  link
+  text
+}
+
+enum AgencySubmissionStatus {
+  submitted
+  approved
+  needs_changes
+}
+
+enum AuthRole {
+  user
+  admin
+}
+
+model AuthUserRole {
+  id         String   @id @default(cuid()) @map("_id")
+  authUserId String   @unique
+  role       AuthRole @default(user)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model AgencyApplication {
+  id               String                  @id @default(cuid()) @map("_id")
+  status           AgencyApplicationStatus @default(applied)
+
+  // Applicant info (public application)
+  name             String
+  email            String
+  socials          String? // JSON string { instagram, tiktok, youtube, website, ... }
+  goal             String? // why join / what they want to build
+  brandStage       String? // optional
+
+  // Linked account (Better Auth user id)
+  claimedAuthUserId String? @unique
+
+  adminNotes       String?
+  acceptedAt       DateTime?
+  completedAt      DateTime?
+
+  taskAssignments  AgencyTaskAssignment[]
+  entitlements     AgencyEntitlement[]
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+}
+
+model AgencyTaskTemplate {
+  id          String   @id @default(cuid()) @map("_id")
+  title       String
+  description String?
+  required    Boolean  @default(true)
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+
+  assignments AgencyTaskAssignment[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@index([isActive])
+}
+
+model AgencyTaskAssignment {
+  id             String           @id @default(cuid()) @map("_id")
+  applicationId  String
+  application    AgencyApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  templateId     String
+  template       AgencyTaskTemplate @relation(fields: [templateId], references: [id], onDelete: Restrict)
+
+  status         AgencyTaskStatus  @default(pending)
+  dueAt          DateTime?
+
+  submissions    AgencyTaskSubmission[]
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([applicationId, templateId])
+  @@index([applicationId])
+  @@index([status])
+}
+
+model AgencyTaskSubmission {
+  id            String                 @id @default(cuid()) @map("_id")
+  assignmentId  String
+  assignment    AgencyTaskAssignment   @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+
+  type          AgencySubmissionType
+  content       String
+
+  status        AgencySubmissionStatus @default(submitted)
+  reviewerNotes String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([assignmentId])
+  @@index([status])
+}
+
+model AgencyEntitlement {
+  id             String            @id @default(cuid()) @map("_id")
+  applicationId  String
+  application    AgencyApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  type           String // e.g. brand_scaling, ai_saas_build
+  metadata       String? // JSON string
+  active         Boolean @default(true)
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([applicationId, type])
+  @@index([applicationId])
+  @@index([type])
+}
+

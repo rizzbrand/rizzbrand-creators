@@ -1,4 +1,4 @@
-import { LayoutGridIcon, Link2Icon, BarChart3Icon, CalendarIcon, DollarSignIcon, MailIcon, UsersIcon, SettingsIcon, LucideIcon } from 'lucide-react';
+import { LayoutGridIcon, Link2Icon, BarChart3Icon, CalendarIcon, DollarSignIcon, MailIcon, UsersIcon, SettingsIcon, SparklesIcon, LucideIcon } from 'lucide-react';
 
 type Link = {
     href: string;
@@ -41,6 +41,11 @@ export const SIDEBAR_LINKS: Link[] = [
         href: "/app/community",
         label: "Community",
         icon: UsersIcon,
+    },
+    {
+        href: "/app/agency-program",
+        label: "Agency Program",
+        icon: SparklesIcon,
     },
     {
         href: "/app/settings",
