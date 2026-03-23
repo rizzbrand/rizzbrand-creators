@@ -1,5 +1,10 @@
 import { Metadata } from "next";
 
+const APP_NAME_FALLBACK = "Rizzbrand";
+const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || APP_NAME_FALLBACK;
+const AUTHOR_NAME_FALLBACK = "Rizzbrand";
+const AUTHOR_NAME = process.env.NEXT_PUBLIC_AUTHOR_NAME || AUTHOR_NAME_FALLBACK;
+
 interface MetadataProps {
     title?: string;
     description?: string;
@@ -17,7 +22,7 @@ interface MetadataProps {
 }
 
 export const generateMetadata = ({
-    title = `${process.env.NEXT_PUBLIC_APP_NAME} - Smart Social Media Marketing Platform`,
+    title = `${APP_NAME} - Smart Social Media Marketing Platform`,
     description = "Streamline your social media management with AI-powered analytics, scheduling, and content optimization. Get real-time insights, automate posts, and boost engagement across all platforms",
     image = "/thumbnail.png",
     icons = [
@@ -43,7 +48,7 @@ export const generateMetadata = ({
         "artificial intelligence",
         "content marketing"
     ],
-    author = process.env.NEXT_PUBLIC_AUTHOR_NAME,
+    author = AUTHOR_NAME,
     twitterHandle = "@yourtwitterhandle",
     type = "website",
     locale = "en_US",
@@ -57,14 +62,14 @@ export const generateMetadata = ({
     return {
         metadataBase,
         title: {
-            template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME}`,
+            template: `%s | ${APP_NAME}`,
             default: title
         },
         description,
         keywords,
         authors: [{ name: author }],
         creator: author,
-        publisher: process.env.NEXT_PUBLIC_APP_NAME,
+        publisher: APP_NAME,
         formatDetection: {
             email: false,
             address: false,
