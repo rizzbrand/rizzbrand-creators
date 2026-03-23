@@ -1,7 +1,15 @@
 import { Container, Wrapper } from "@/components";
 import { Button } from "@/components/ui/button";
-import { AgencyHeroCtas } from "@/components/agency-program/agency-hero-ctas";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const AgencyHeroCtas = dynamic(
+  () =>
+    import("@/components/agency-program/agency-hero-ctas").then(
+      (m) => m.AgencyHeroCtas,
+    ),
+  { ssr: false }
+);
 
 export default function AgencyProgramPage() {
   return (
