@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { cn } from "@/functions";
 import { useClickOutside } from "@/hooks";
 import { motion } from "framer-motion";
-import { Bot, Box, CalendarClock, Captions, CircleHelp, CopyCheck, Cpu, FileText, Gem, LayoutGrid, Layers3, LineChart, MonitorSmartphone, Newspaper, PencilRuler, UserCog, Waypoints } from "lucide-react";
+import { Bot, Box, CalendarClock, Captions, CircleHelp, CopyCheck, Cpu, FileText, Gem, LayoutGrid, Layers3, LineChart, MonitorSmartphone, Newspaper, PencilRuler, Sparkles, UserCog, Waypoints } from "lucide-react";
 import Link from "next/link";
 import React from 'react';
 
@@ -108,9 +108,9 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                         onClick={() => setIsOpen(false)}
                         className="w-full px-4 py-2 text-lg hover:text-muted-foreground font-normal transition transform rounded-md cursor-pointer text-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
                     >
-                        <Link href="/" className="flex items-center w-full text-start">
-                            <Gem className="w-4 h-4 mr-2" />
-                            Pricing
+                        <Link href="/agency-program" className="flex items-center w-full text-start">
+                            <Sparkles className="w-4 h-4 mr-2" />
+                            Creators Program
                         </Link>
                     </li>
                     <li
@@ -118,8 +118,8 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                         className="w-full px-4 py-2 text-lg hover:text-muted-foreground font-normal transition transform rounded-md cursor-pointer text-foreground text-start active:scale-95 hover:bg-muted/20 active:opacity-80"
                     >
                         <Link href="/" className="flex items-center w-full text-start">
-                            <Waypoints className="w-4 h-4 mr-2" />
-                            Integrations
+                            <Gem className="w-4 h-4 mr-2" />
+                            Pricing
                         </Link>
                     </li>
                     <Accordion type="single" collapsible className="w-full">

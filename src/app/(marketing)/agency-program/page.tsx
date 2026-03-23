@@ -1,11 +1,13 @@
 import { Container, Wrapper } from "@/components";
 import { Button } from "@/components/ui/button";
+import { AgencyHeroCtas } from "@/components/agency-program/agency-hero-ctas";
 import Link from "next/link";
 
 export default function AgencyProgramPage() {
   return (
     <Wrapper className="py-20 md:py-24 min-h-screen">
       <Container className="max-w-5xl mx-auto">
+        {/* Hero / intro */}
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="inline-flex items-center rounded-full border border-border bg-card/50 px-3 py-1 text-xs text-muted-foreground">
@@ -21,15 +23,7 @@ export default function AgencyProgramPage() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button asChild>
-                <Link href="/agency-program/apply">Apply now</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="/auth/signup">Create an account</Link>
-              </Button>
-              <Button asChild variant="ghost">
-                <Link href="/app/agency-program">View progress</Link>
-              </Button>
+              <AgencyHeroCtas />
             </div>
           </div>
 
@@ -73,6 +67,44 @@ export default function AgencyProgramPage() {
             </div>
           </div>
         </div>
+
+        {/* Who it's for */}
+        <section className="mt-14 grid gap-6 rounded-2xl border border-border bg-card/40 p-6 md:mt-20 md:p-8">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Who this is for
+            </p>
+            <h2 className="mt-2 text-xl font-semibold md:text-2xl">
+              Creators who want to turn attention into real products and businesses.
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-xl border border-border/60 bg-background/60 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                01 • Brand builders
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                You have an audience (or momentum) and want a sharper brand, offer, and funnel.
+              </p>
+            </div>
+            <div className="rounded-xl border border-border/60 bg-background/60 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                02 • Product thinkers
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                You&apos;re sitting on ideas for tools, AI products, or SaaS and need a path to MVP.
+              </p>
+            </div>
+            <div className="rounded-xl border border-border/60 bg-background/60 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                03 • System builders
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                You want repeatable systems for content, launches, and revenue—not one-off wins.
+              </p>
+            </div>
+          </div>
+        </section>
       </Container>
     </Wrapper>
   );

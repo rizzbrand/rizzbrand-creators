@@ -29,10 +29,17 @@ const Hero = () => {
                     </span>
                 </div>
             </Container>
-            <BlurText
-                word={"Build brands, products & software\n that win in the creator economy"}
-                className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent py-2 md:py-0 lg:!leading-snug font-medium racking-[-0.0125em] mt-6 font-heading"
-            />
+            <div className="mt-6 space-y-2">
+                <BlurText
+                    word={"Build brands, products & software"}
+                    className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent py-2 md:py-0 lg:!leading-snug font-medium racking-[-0.0125em] font-heading"
+                />
+                <p className="text-lg sm:text-2xl lg:text-3xl text-foreground/80">
+                    <span className="bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-clip-text text-transparent">
+                        that win in the creator economy
+                    </span>
+                </p>
+            </div>
             <Container delay={0.1}>
                 <p className="text-sm sm:text-base lg:text-lg mt-4 text-accent-foreground/60 max-w-2xl mx-auto">
                     We partner with creators and teams to design products, launch brands, and build software &amp; AI experiences that turn attention into long-term businesses.{" "}

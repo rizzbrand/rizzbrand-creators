@@ -34,6 +34,7 @@ export const OUR_CREATOR_TOOLS: CreatorTool[] = [
     category: "Link in Bio",
     href: "/app/link-in-bio",
     accentColor: "#43E97B",
+    icon: "/images/link.png",
     builtByUs: true,
   },
   {
@@ -43,6 +44,7 @@ export const OUR_CREATOR_TOOLS: CreatorTool[] = [
     category: "Analytics",
     href: "/app/analytics",
     accentColor: "#6366F1",
+    icon: "/images/data.png",
     builtByUs: true,
   },
   {
@@ -52,6 +54,7 @@ export const OUR_CREATOR_TOOLS: CreatorTool[] = [
     category: "Scheduling",
     href: "/app/scheduling",
     accentColor: "#00B4D8",
+    icon: "/images/schedule.png",
     builtByUs: true,
   },
   {

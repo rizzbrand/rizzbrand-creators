@@ -6,10 +6,12 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { createAgencyApplication } from "@/lib/actions/agency-program";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 
 export function AgencyProgramApplyForm() {
+  const router = useRouter();
   const [pending, setPending] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,7 +33,8 @@ export function AgencyProgramApplyForm() {
         goal,
         brandStage,
       });
-      toast.success("Application submitted. Create an account to track your progress.");
+      toast.success("Application submitted. You can now view your progress.");
+      router.push("/agency-program?enrolled=1");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to submit");
     } finally {

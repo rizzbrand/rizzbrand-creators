@@ -14,7 +14,7 @@ const ROLES = [
   "Web/App Developer",
   "Software & AI Engineer",
   "Blockchain Developer",
-  "Product Designer",
+  "Product Manager",
 ];
 
 const TECHNICAL = {
@@ -47,6 +47,9 @@ const TECHNICAL = {
     "UI/UX Design",
     "Graphic design",
     "Product Strategy",
+    "Roadmapping & prioritization",
+    "Agile delivery & sprint planning",
+    "Requirements & stakeholder alignment",
     "System Architecture",
     "Prototyping",
     "Wireframing",
@@ -63,34 +66,34 @@ const VENTURES = [
     tagColor: "bg-blue-500/20 text-blue-400 border border-blue-500/30",
     icon: Sparkles,
     description:
-      "Built a comprehensive fintech accounting and management platform. Architected AI-driven insights for personal finance tracking and automated bookkeeping solutions.",
+      "Built a comprehensive fintech accounting and management platform owned the product roadmap, defined delivery milestones, and shipped iteratively. Architected AI-driven insights for personal finance tracking and automated bookkeeping solutions.",
   },
   {
-    role: "Web designer",
+    role: "product designer",
     company: "RizFlow",
     tag: "ECOMMERCE",
     tagColor: "bg-amber-500/20 text-amber-400 border border-amber-500/30",
     icon: DollarSign,
     description:
-      "Developed a decentralized community platform empowering artists to market, distribute, and sell merchandise. Implemented smart contracts for secure transactions and royalty distribution with stablecoins.",
+      "Developed a decentralized community platform empowering artists to market, distribute, and sell merchandise planned milestones and iterated on performance. Implemented smart contracts for secure transactions and royalty distribution with stablecoins.",
   },
   {
-    role: "Web designer",
+    role: "product manager",
     company: "Moodify",
     tag: "RWA",
     tagColor: "bg-teal-500/20 text-teal-400 border border-teal-500/30",
     icon: Building2,
     description:
-      "Pioneered Real World Asset (RWA) tokenization for a real estate agency. Enabled fractional ownership of properties through secure blockchain infrastructure.",
+      "Pioneered Real World Asset (RWA) tokenization for a real estate agency coordinated cross-functional milestones to ship an MVP and validate market fit. Enabled fractional ownership of properties through secure blockchain infrastructure.",
   },
   {
-    role: "Software Engineer",
+    role: "product manager",
     company: "CarFusion",
     tag: "PRODUCT",
     tagColor: "bg-indigo-500/20 text-indigo-400 border border-indigo-500/30",
     icon: Car,
     description:
-      "Engineered a versatile automotive platform facilitating vehicle buying, renting, and swapping. Designed the product workflow to ensure trust and ease of use for users.",
+      "Engineered a versatile automotive platform facilitating vehicle buying, renting, and swapping defined MVP scope and managed delivery in sprints. Designed the product workflow to ensure trust and ease of use for users.",
   },
   {
     role: "Software Engineer",
@@ -99,22 +102,22 @@ const VENTURES = [
     tagColor: "bg-green-600/20 text-green-400 border border-green-600/30",
     icon: Stethoscope,
     description:
-      "Developed practice management software for a dental care agency, streamlining patient booking, records management, and operational workflows.",
+      "Developed practice management software for a dental care agency, aligning requirements with stakeholders. Streamlined patient booking, records management, and operational workflows for a smoother rollout.",
   },
   {
-    role: "Web designer",
+    role: "product manager",
     company: "Payollar",
     tag: "MEDIA",
     tagColor: "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30",
     icon: Tv,
     description:
-      "Contributed to a media booking agency platform, optimizing high-traffic reservation systems and payment gateway integrations.",
+      "Contributed to a media booking agency platform, scoping high-traffic reservation workflows and iterating on payment gateway integration. Focused on reliability, speed, and user clarity during launches.",
   },
 ];
 
 export default function CVPage() {
   return (
-    <div className="min-h-screen bg-[#0A0A1F] text-white">
+    <div className="cv-page min-h-screen bg-[#0A0A1F] text-white">
       <div className="mx-auto max-w-4xl px-4 pt-24 pb-12 sm:px-6 sm:pt-28 lg:px-8">
         {/* Header */}
         <header className="mb-12">
@@ -146,10 +149,7 @@ export default function CVPage() {
             </h2>
           </div>
           <p className="mt-4 leading-relaxed text-white/90">
-            Full-stack developer and designer focused on web design & development,
-            AI integrations, and process automation. I build modern, responsive
-            apps and sites from UI/UX and front-end to APIs and back-end and
-            integrate AI and automation to improve workflows and user experiences.
+            Product manager–minded full-stack developer and designer focused on shipping digital products. I lead discovery and translate user and business needs into requirements, roadmaps, and PRD-level specifications then prioritize MVP scope and align stakeholders around clear delivery goals. I design UX/UI and scalable systems, build end-to-end with modern front-end, APIs, and back-end, and integrate AI into real workflows to automate operations. I measure outcomes, iterate with feedback, and continuously improve product experience while maintaining strong technical execution.
           </p>
         </section>
 

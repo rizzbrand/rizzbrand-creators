@@ -6,11 +6,27 @@ import {
   OUR_CREATOR_TOOLS,
   type CreatorTool,
 } from "@/constants/creator-tools";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
 function ToolIcon({ tool, size = "lg" }: { tool: CreatorTool; size?: "sm" | "lg" }) {
+  if (tool.icon) {
+    return (
+      <div className="relative h-full w-full">
+        <Image
+          src={tool.icon}
+          alt={tool.name}
+          fill
+          className="object-contain"
+          sizes={size === "sm" ? "36px" : "96px"}
+          priority={tool.id === "link-in-bio"}
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className="flex h-full w-full items-center justify-center font-bold text-white/90"
@@ -37,11 +53,22 @@ function ToolCard({ tool }: { tool: CreatorTool }) {
           background: `linear-gradient(135deg, ${tool.accentColor}30 0%, ${tool.accentColor}10 50%, transparent 100%)`,
         }}
       >
-        <div className="absolute inset-0 flex items-center justify-center p-8">
-          <div className="relative h-24 w-24 overflow-hidden rounded-[22px] shadow-xl">
-            <ToolIcon tool={tool} />
+        {tool.icon ? (
+          <Image
+            src={tool.icon}
+            alt={tool.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 33vw"
+            priority={tool.id === "link-in-bio"}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center p-8">
+            <div className="relative h-24 w-24 overflow-hidden rounded-[22px] shadow-xl">
+              <ToolIcon tool={tool} />
+            </div>
           </div>
-        </div>
+        )}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </div>
 

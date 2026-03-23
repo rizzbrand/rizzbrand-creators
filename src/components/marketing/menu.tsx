@@ -69,9 +69,9 @@ const Menu = () => {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href="/integrations" legacyBehavior passHref>
+                    <Link href="/agency-program" legacyBehavior passHref>
                         <NavigationMenuLink className="h-10 px-4 py-2 text-sm font-normal rounded-md text-muted-foreground hover:text-foreground w-max hover:bg-none">
-                            Integrations
+                            Creators Program
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
